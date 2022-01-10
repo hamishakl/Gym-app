@@ -1,23 +1,78 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+   } from 'reactstrap';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Navbar
+    color="dark"
+    dark
+    expand="md"
+    fixed=""
+  >
+    <NavbarBrand href="/">
+      Hamish's sick gym app
+    </NavbarBrand>
+    <NavbarToggler onClick={function noRefCheck(){}} />
+    <Collapse navbar>
+      <Nav
+        className="me-auto"
+        navbar
+      >
+        <NavItem>
+          <NavLink href="/components/">
+            Components
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="https://github.com/reactstrap/reactstrap">
+            GitHub
+          </NavLink>
+        </NavItem>
+        <UncontrolledDropdown
+          inNavbar
+          nav
         >
-          Learn React
-        </a>
-      </header>
+          <DropdownToggle
+            caret
+            nav
+          >
+            Options
+          </DropdownToggle>
+          <DropdownMenu right>
+            <DropdownItem>
+              Option 1
+            </DropdownItem>
+            <DropdownItem>
+              Option 2
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>
+              Reset
+            </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
+      </Nav>
+      <NavbarText>
+        The app to track my lifts instead of spreadsheets
+      </NavbarText>
+    </Collapse>
+  </Navbar>
     </div>
   );
 }

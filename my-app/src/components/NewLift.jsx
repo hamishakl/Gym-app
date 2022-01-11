@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   Form,
   FormGroup,
@@ -7,12 +7,18 @@ import {
   Input,
   FormText,
   Button,
-  FormFeedback
 } from "reactstrap";
 
-export default class NewLift extends Component {
-  render() {
-    return (
+function NewLift() {
+  let calc1rm = (a, b) => {
+    let weight = a * b * 0.0333 + a;
+    console.log(weight);
+    return weight;
+  };
+  const [oneRM, setCount] = useState(0);
+
+  return (
+    <>
       <Form>
         <FormGroup row>
           <Label for="exampleSelect" sm={2}>
@@ -30,17 +36,17 @@ export default class NewLift extends Component {
         </FormGroup>
         <FormGroup>
           <Label for="weight">Weight</Label>
-          <Input type="number" id="weight"/>
+          <Input type="number" id="weight" />
           <FormText>Input the weight</FormText>
         </FormGroup>
         <FormGroup>
           <Label for="reps">Reps</Label>
-          <Input type="number" id="reps"/>
+          <Input type="number" id="reps" />
           <FormText>Input the reps</FormText>
         </FormGroup>
         <FormGroup row>
           <Label for="dateSelect" sm={2}>
-            Choose date
+            Choose dated
           </Label>
           <Col sm={10}>
             <Input id="dateSelect" type="date" />
@@ -53,10 +59,13 @@ export default class NewLift extends Component {
               size: 10,
             }}
           >
-            <Button>Submit</Button>
+            <Button onClick={() => setCount(oneRM + 1)}>Submits</Button>
           </Col>
         </FormGroup>
       </Form>
-    );
-  }
+      <p>You clicked {oneRM} times</p>
+    </>
+  );
 }
+
+export default NewLift;

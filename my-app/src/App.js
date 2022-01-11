@@ -11,7 +11,8 @@ function App() {
     <div className="App">
      <NavbarComponent />
      <CurrentLifts />
-     <NewLift />
+     {/* <NewLift /> */}
+<NewLift />
     </div>
   );
 }

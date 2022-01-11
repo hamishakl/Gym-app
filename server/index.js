@@ -1,21 +1,23 @@
-// server/index.js
-const path = require('path');
 
-const express = require("express");
-
-const PORT = process.env.PORT || 3001;
+const express = require('express');
 
 const app = express();
 
-// Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-// Handle GET requests to /api route
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
+// middleware for allowing react to fetch() from server
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, OPTIONS');
+  next();
 });
 
-// All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
+// An api endpoint that returns a short list of items
+app.get('/api/getList', (req, res) => {
+  const list = ['item1', 'item2', 'iteasdasd'];
+  res.json(list);
+  console.log('sent list of items');
+})
+
+app.listen(8000, () => {
+  console.log(`listening on port ${8000}`);
+})

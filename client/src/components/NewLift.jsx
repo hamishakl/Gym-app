@@ -11,8 +11,6 @@ function List() {
   return(
       <div>
       <h1>List from server{"\n"}</h1>
-        {data.map((item) => {
-          return (
             <Table responsive>
             <thead>
               <tr>
@@ -24,6 +22,8 @@ function List() {
                 <th>Weighted Chin</th>
               </tr>
             </thead>
+        {data.map((item) => { 
+          return (
             <tbody>
               <tr>
                 <th scope="row">PR</th>
@@ -34,9 +34,9 @@ function List() {
                 <td>{item}</td>
               </tr>
             </tbody>
-          </Table>
           )
-      })}
+        })}
+        </Table>
        
       </div>
   );

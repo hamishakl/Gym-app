@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import {
-    Table
-  } from "reactstrap";
+import { Table } from "reactstrap";
 
 export default class CurrentLifts extends Component {
   render() {
@@ -9,7 +7,7 @@ export default class CurrentLifts extends Component {
       <Table responsive>
         <thead>
           <tr>
-            <th>Lifts to date</th>
+            <th>Lifts</th>
             <th>Squat</th>
             <th>Bench</th>
             <th>Deadlift</th>
@@ -19,7 +17,7 @@ export default class CurrentLifts extends Component {
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
+            <th scope="row">PR</th>
             <td>Table cell</td>
             <td>Table cell</td>
             <td>Table cell</td>
